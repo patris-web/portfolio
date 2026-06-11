@@ -148,8 +148,7 @@ if (portfolioPanel) {
 const modal = document.querySelector(".portfolio-modal");
 
 if (modal) {
-  const modalVideo = modal.querySelector(".modal-video");
-  const modalVideoSource = modalVideo?.querySelector("source");
+  const modalImg = modal.querySelector(".modal-img");
   const modalTitle = modal.querySelector(".modal-title");
   const modalType = modal.querySelector(".modal-type");
   const modalLink = modal.querySelector(".modal-link");
@@ -158,42 +157,19 @@ if (modal) {
   const cards = document.querySelectorAll(".portfolio-card");
 
   cards.forEach(card => {
-    const previewVideo = card.querySelector(".portfolio-video");
-
-    // Play scroll capture preview on hover
-    card.addEventListener("mouseenter", () => {
-      if (!previewVideo) return;
-      previewVideo.currentTime = 0;
-      previewVideo.play().catch(() => {});
-    });
-
-    card.addEventListener("mouseleave", () => {
-      if (!previewVideo) return;
-      previewVideo.pause();
-      previewVideo.currentTime = 0;
-    });
-
-    // Open modal on card click
     card.addEventListener("click", (e) => {
       // If user clicks the live link, do not open modal
       if (e.target.closest(".portfolio-link")) return;
 
       const title = card.dataset.title || "";
       const type = card.dataset.type || "";
-      const videoSrc = card.dataset.video || "";
+      const img = card.dataset.img || "";
       const link = card.dataset.link || "#";
 
+      if (modalImg) modalImg.src = img;
       if (modalTitle) modalTitle.textContent = title;
       if (modalType) modalType.textContent = type;
       if (modalLink) modalLink.href = link;
-
-      if (modalVideo && modalVideoSource) {
-        modalVideo.pause();
-        modalVideoSource.src = videoSrc;
-        modalVideo.load();
-
-        modalVideo.play().catch(() => {});
-      }
 
       modal.classList.add("active");
       modal.setAttribute("aria-hidden", "false");
@@ -206,12 +182,7 @@ if (modal) {
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
 
-    if (modalVideo && modalVideoSource) {
-      modalVideo.pause();
-      modalVideo.currentTime = 0;
-      modalVideoSource.src = "";
-      modalVideo.load();
-    }
+    if (modalImg) modalImg.src = "";
   }
 
   closeBtn?.addEventListener("click", closeModal);

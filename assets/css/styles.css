@@ -234,7 +234,7 @@ body {
   transform: scale(1.05);
 }
 
-.portfolio-video {
+.portfolio-card img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -245,7 +245,7 @@ body {
   transition: transform .6s ease, filter .6s ease;
 }
 
-.portfolio-card:hover .portfolio-video {
+.portfolio-card:hover img {
   transform: scale(1.04);
   filter: brightness(.75);
 }
@@ -329,7 +329,7 @@ body {
   box-shadow: 0 24px 80px rgba(0,0,0,.45);
 }
 
-.modal-video {
+.modal-img {
   width: 100%;
   max-height: 68vh;
   border-radius: 14px;
@@ -377,7 +377,6 @@ body {
   cursor: pointer;
   z-index: 3;
 }
-
 /* =====================
    SPLIT TEXT
 ===================== */
