@@ -211,7 +211,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .portfolio-grid {
@@ -235,13 +234,20 @@ body {
   transform: scale(1.05);
 }
 
-.portfolio-card img {
+.portfolio-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  display: block;
+  transition: transform .6s ease, filter .6s ease;
+}
+
+.portfolio-card:hover .portfolio-video {
+  transform: scale(1.04);
+  filter: brightness(.75);
 }
 
 .portfolio-card::after {
@@ -260,8 +266,8 @@ body {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
+  right: 2rem;
   z-index: 2;
-  pointer-events: none;
 }
 
 .portfolio-text h3 {
@@ -270,15 +276,33 @@ body {
 }
 
 .portfolio-text span {
+  display: block;
   opacity: .7;
   font-size: .9rem;
+  margin-top: .25rem;
+}
+
+.portfolio-link {
+  display: inline-block;
+  margin-top: .8rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: .9rem;
+  opacity: .85;
+  position: relative;
+  z-index: 5;
+}
+
+.portfolio-link:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /* MODAL */
 .portfolio-modal {
   position: fixed;
   inset: 0;
-  background: rgba(10,20,30,.8);
+  background: rgba(10,20,30,.86);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,6 +310,7 @@ body {
   pointer-events: none;
   transition: opacity .3s ease;
   z-index: 9999;
+  padding: 1.5rem;
 }
 
 .portfolio-modal.active {
@@ -294,29 +319,63 @@ body {
 }
 
 .modal-box {
+  position: relative;
   background: #0d1f2d;
   padding: 2rem;
   border-radius: 20px;
-  max-width: 700px;
-  width: 90%;
+  max-width: 920px;
+  width: min(92vw, 920px);
   text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.45);
 }
 
-.modal-img {
+.modal-video {
   width: 100%;
+  max-height: 68vh;
   border-radius: 14px;
   margin-bottom: 1rem;
+  display: block;
+  object-fit: contain;
+  background: #07131d;
+}
+
+.modal-title {
+  margin: .75rem 0 .25rem;
+}
+
+.modal-type {
+  margin: 0;
+  opacity: .75;
+}
+
+.modal-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.modal-link:hover {
+  text-decoration: underline;
 }
 
 .modal-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
+  top: .8rem;
+  right: .9rem;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
   font-size: 2rem;
+  line-height: 1;
   color: #fff;
   cursor: pointer;
+  z-index: 3;
 }
 
 /* =====================
@@ -514,8 +573,7 @@ body {
 
   /* PORTFOLIO */
   .portfolio-grid {
-    grid-template-columns: repeat(3, 280px);
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(280px, 320px));
   }
 
   /* SERVICES */
@@ -575,11 +633,7 @@ body {
 
   /* PORTFOLIO */
   .panel-portfolio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 6rem 1.5rem;
+    padding: 5rem 1rem;
   }
 
   .portfolio-grid {
@@ -589,6 +643,10 @@ body {
 
   .portfolio-card {
     height: 380px;
+  }
+
+  .modal-box {
+    padding: 1rem;
   }
 
   /* RESUME */

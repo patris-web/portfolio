@@ -165,62 +165,131 @@
 </section>
 
 
-    <!-- ========== PORTFOLIO ========== -->
-    <section id="portfolio" class="panel panel-portfolio">
-      <div class="portfolio-grid">
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio" class="panel panel-portfolio">
+    <div class="portfolio-grid">
 
-        <div class="portfolio-card" data-title="Project One" data-type="Web Design" data-img="assets/img/portfolio.png">
-          <img src="assets/img/portfolio.png" alt="Project photo One">
-          <div class="portfolio-text">
-            <h3>Premium Portfolio Template</h3>
-            <span>HTML / CSS / JavaScript</span>
-          </div>
+      <!-- Portfolio card -->
+      <div 
+        class="portfolio-card" 
+        data-title="Premium Portfolio Template" 
+        data-type="HTML / CSS / JavaScript"
+        data-video="assets/video/portfolio.mp4"
+        data-link="https://patris-web.github.io/portfolio-template/"
+      >
+        <video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/img/portfolio.png">
+          <source src="assets/video/portfolio.mp4" type="video/mp4">
+        </video>
+
+        <div class="portfolio-text">
+          <h3>Premium Portfolio Template</h3>
+          <span>HTML / CSS / JavaScript</span>
+          <a href="https://patris-web.github.io/portfolio-template/" target="_blank" rel="noopener" class="portfolio-link">
+            View live site →
+          </a>
         </div>
-
-        <div class="portfolio-card" data-title="Project Two" data-type="Brand Identity" data-img="assets/img/coffe.png">
-          <img src="assets/img/coffe.png" alt="Project photo Two">
-          <div class="portfolio-text">
-            <h3>Minimal Coffee Shop Website</h3>
-            <span>Responsive Web Design</span>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-title="Project Three" data-type="Creative Dev" data-img="assets/img/villa.png">
-          <img src="assets/img/villa.png" alt="Project photo Three">
-          <div class="portfolio-text">
-            <h3>Villa Landing Page</h3>
-            <span>UI / Front-End Development</span>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-title="Project Four" data-type="Live Site" data-img="assets/img/kito.png">
-          <img src="assets/img/kito.png" alt="Project photo Four">
-          <div class="portfolio-text">
-            <h3>Kito Marine Farm</h3>
-            <span>UI / Front-End Development / WordPress / Live Site</span>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-title="Project Five" data-type="Live Site" data-img="assets/img/vespa.png">
-          <img src="assets/img/vespa.png" alt="Project photo Five">
-          <div class="portfolio-text">
-            <h3>Vespa Club Thessaloniki</h3>
-            <span>UI / Front-End Development / WordPress / Live Site</span>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-    <!-- MODAL -->
-    <div class="portfolio-modal" aria-hidden="true">
-      <div class="modal-box">
-        <button class="modal-close">×</button>
-        <img class="modal-img" src="" alt="modal">
-        <h2 class="modal-title"></h2>
-        <p class="modal-type"></p>
+      <div 
+        class="portfolio-card" 
+        data-title="Minimal Coffee Shop Website" 
+        data-type="Responsive Web Design"
+        data-video="assets/video/coffee-shop.mp4"
+        data-link="https://patris-web.github.io/minimal-coffee-shop/"
+      >
+        <video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/img/coffe.png">
+          <source src="assets/video/coffee-shop.mp4" type="video/mp4">
+        </video>
+
+        <div class="portfolio-text">
+          <h3>Minimal Coffee Shop Website</h3>
+          <span>Responsive Web Design</span>
+          <a href="https://patris-web.github.io/minimal-coffee-shop/" target="_blank" rel="noopener" class="portfolio-link">
+            View live site →
+          </a>
+        </div>
       </div>
+
+      <div 
+        class="portfolio-card" 
+        data-title="Villa Landing Page" 
+        data-type="UI / Front-End Development"
+        data-video="assets/video/villa.mp4"
+        data-link="https://patris-web.github.io/villa-landing-page/"
+      >
+        <video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/img/villa.png">
+          <source src="assets/video/villa.mp4" type="video/mp4">
+        </video>
+
+        <div class="portfolio-text">
+          <h3>Villa Landing Page</h3>
+          <span>UI / Front-End Development</span>
+          <a href="https://patris-web.github.io/villa-landing-page/" target="_blank" rel="noopener" class="portfolio-link">
+            View live site →
+          </a>
+        </div>
+      </div>
+
+      <div 
+        class="portfolio-card" 
+        data-title="Kito Marine Farm" 
+        data-type="UI / Front-End Development / WordPress / Live Site"
+        data-video="assets/video/kito.mp4"
+        data-link="https://kito.gr/"
+      >
+        <video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/img/kito.png">
+          <source src="assets/video/kito.mp4" type="video/mp4">
+        </video>
+
+        <div class="portfolio-text">
+          <h3>Kito Marine Farm</h3>
+          <span>UI / Front-End Development / WordPress / Live Site</span>
+          <a href="https://kito.gr/" target="_blank" rel="noopener" class="portfolio-link">
+            View live site →
+          </a>
+        </div>
+      </div>
+
+      <div 
+        class="portfolio-card" 
+        data-title="Vespa Club Thessaloniki" 
+        data-type="UI / Front-End Development / WordPress / Live Site"
+        data-video="assets/video/vespa.mp4"
+        data-link="https://www.vespaclub.gr/"
+      >
+        <video class="portfolio-video" muted loop playsinline preload="metadata" poster="assets/img/vespa.png">
+          <source src="assets/video/vespa.mp4" type="video/mp4">
+        </video>
+
+        <div class="portfolio-text">
+          <h3>Vespa Club Thessaloniki</h3>
+          <span>UI / Front-End Development / WordPress / Live Site</span>
+          <a href="https://www.vespaclub.gr/" target="_blank" rel="noopener" class="portfolio-link">
+            View live site →
+          </a>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <!-- ========== PORTFOLIO MODAL ========== -->
+  <div class="portfolio-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" type="button">×</button>
+
+      <video class="modal-video" controls muted playsinline>
+        <source src="" type="video/mp4">
+      </video>
+
+      <h2 class="modal-title"></h2>
+      <p class="modal-type"></p>
+
+      <a class="modal-link" href="#" target="_blank" rel="noopener">
+        Visit live project →
+      </a>
+    </div>
+  </div>
 
 
     <!-- ========== CONTACT ========== -->

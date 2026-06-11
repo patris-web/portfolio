@@ -148,29 +148,83 @@ if (portfolioPanel) {
 const modal = document.querySelector(".portfolio-modal");
 
 if (modal) {
-  const modalImg = modal.querySelector(".modal-img");
+  const modalVideo = modal.querySelector(".modal-video");
+  const modalVideoSource = modalVideo?.querySelector("source");
   const modalTitle = modal.querySelector(".modal-title");
   const modalType = modal.querySelector(".modal-type");
+  const modalLink = modal.querySelector(".modal-link");
   const closeBtn = modal.querySelector(".modal-close");
 
-  document
-    .querySelectorAll(".portfolio-card")
-    .forEach(card => {
-      card.addEventListener("click", () => {
-        modalImg.src = card.dataset.img;
-        modalTitle.textContent = card.dataset.title;
-        modalType.textContent = card.dataset.type;
-        modal.classList.add("active");
-      });
+  const cards = document.querySelectorAll(".portfolio-card");
+
+  cards.forEach(card => {
+    const previewVideo = card.querySelector(".portfolio-video");
+
+    // Play scroll capture preview on hover
+    card.addEventListener("mouseenter", () => {
+      if (!previewVideo) return;
+      previewVideo.currentTime = 0;
+      previewVideo.play().catch(() => {});
     });
 
-  closeBtn?.addEventListener("click", () => {
-    modal.classList.remove("active");
+    card.addEventListener("mouseleave", () => {
+      if (!previewVideo) return;
+      previewVideo.pause();
+      previewVideo.currentTime = 0;
+    });
+
+    // Open modal on card click
+    card.addEventListener("click", (e) => {
+      // If user clicks the live link, do not open modal
+      if (e.target.closest(".portfolio-link")) return;
+
+      const title = card.dataset.title || "";
+      const type = card.dataset.type || "";
+      const videoSrc = card.dataset.video || "";
+      const link = card.dataset.link || "#";
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalType) modalType.textContent = type;
+      if (modalLink) modalLink.href = link;
+
+      if (modalVideo && modalVideoSource) {
+        modalVideo.pause();
+        modalVideoSource.src = videoSrc;
+        modalVideo.load();
+
+        modalVideo.play().catch(() => {});
+      }
+
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    });
   });
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (modalVideo && modalVideoSource) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideoSource.src = "";
+      modalVideo.load();
+    }
+  }
+
+  closeBtn?.addEventListener("click", closeModal);
 
   modal.addEventListener("click", e => {
     if (e.target === modal) {
-      modal.classList.remove("active");
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
     }
   });
 }
